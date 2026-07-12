@@ -281,3 +281,16 @@ class ExpenseOut(ORMBase):
     amount: float
     description: str | None
     date: datetime
+
+# ---------------------------------------------------------------------------
+# Auth
+# ---------------------------------------------------------------------------
+class LoginIn(BaseModel):
+    email: EmailStr
+    password: str
+    role: RoleEnum  # from the login page's role dropdown
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
