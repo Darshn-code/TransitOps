@@ -129,6 +129,7 @@ def complete_trip(db: Session, trip_id: int, data: TripCompleteIn) -> Trip:
     trip.completed_at = datetime.utcnow()
     trip.final_odometer = data.final_odometer
     trip.fuel_consumed = data.fuel_consumed
+    trip.revenue = data.revenue
 
     if vehicle is not None:
         vehicle.status = VehicleStatus.AVAILABLE

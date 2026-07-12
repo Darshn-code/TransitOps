@@ -120,6 +120,7 @@ class Trip(Base):
     # Filled in on completion (Step 6 of example workflow)
     final_odometer = Column(Float, nullable=True)
     fuel_consumed = Column(Float, nullable=True)  # liters, denormalized for quick trip-level efficiency
+    revenue = Column(Float, nullable=True)  # entered at completion, drives ROI/Monthly Revenue reporting
 
     vehicle = relationship("Vehicle", back_populates="trips")
     driver = relationship("Driver", back_populates="trips")

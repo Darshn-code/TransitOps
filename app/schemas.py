@@ -181,6 +181,7 @@ class TripCompleteIn(BaseModel):
     final_odometer: float = Field(..., gt=0)
     fuel_consumed: float = Field(..., gt=0)  # liters
     fuel_cost: float = Field(..., ge=0)  # used to create the auto FuelLog row
+    revenue: float = Field(..., ge=0)  # trip revenue, drives ROI/Monthly Revenue reporting
 
 
 class TripCancelIn(BaseModel):
@@ -202,6 +203,7 @@ class TripOut(ORMBase):
     completed_at: datetime | None
     final_odometer: float | None
     fuel_consumed: float | None
+    revenue: float | None
 
 
 # ---------------------------------------------------------------------------
