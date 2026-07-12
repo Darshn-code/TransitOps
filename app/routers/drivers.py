@@ -31,7 +31,7 @@ from app.schemas import (
 
 router = APIRouter(prefix="/drivers", tags=["drivers"])
 
-_ROLES = require_role(RoleEnum.FLEET_MANAGER, RoleEnum.SAFETY_OFFICER)
+_ROLES = require_role(RoleEnum.FLEET_MANAGER, RoleEnum.SAFETY_OFFICER, RoleEnum.DISPATCHER)
 
 
 @router.get("", response_model=list[DriverOut], dependencies=[Depends(_ROLES)])
